@@ -36,4 +36,10 @@ export class AdminDetailComponent implements OnInit {
       .getParticipantsOfEvent(id)
       .subscribe(participants => (this.participants = participants));
   }
+
+  deleteParticipant(participant: Participant) {
+    this.participants = this.participants.filter(p => p !== participant);
+    this.participantService.deleteParticipant(participant).subscribe();
+  }
+
 }
