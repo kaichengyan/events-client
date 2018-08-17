@@ -1,0 +1,15 @@
+<h2>Current Events</h2>
+<div class="row mt-4">
+  <div class="col-md-6 mt-2" *ngFor="let workshop of workshops">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{workshop.title}}</h4>
+        <p class="card-text text-muted">
+          <fa name="map-marker"></fa> {{workshop.location}}
+          <fa name="clock-o" class="ml-3"></fa> {{workshop.date_time}}
+        </p>
+        <a routerLink="/workshop/{{workshop.id}}" class="btn btn-primary"><fa name="info-circle" class="mr-2"></fa>Detail</a>
+      </div>
+    </div>
+  </div>
+</div>

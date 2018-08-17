@@ -1,0 +1,43 @@
+<div *ngIf="workshop">
+  <h2><a routerLink="/workshops"><fa name="chevron-left" class="mr-3"></fa></a>{{ workshop.title }}</h2>
+  <div class="row mt-4">
+    <div class="col-sm">
+      <div class="card mb-3 px-3 py-1">
+        <div class="card-body">
+          <h3 class="card-title">Workshop Info</h3>
+          <p class="card-text text-muted">
+            <fa name="map-marker"></fa> {{ workshop.location }}
+            <fa name="clock-o" class="ml-3"></fa> {{ workshop.date_time }}
+          </p>
+          <p class="card-text markdown-description" [innerHTML]="workshop.description | markdown">
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-header">
+          Sign Up
+        </div>
+        <div class="card-body">
+          <div *ngIf="!submitted">
+              <form method="post" action="#">
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input #participantName class="form-control" id="name" aria-describedby="nameHelp" placeholder="Your Name">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input #participantEmail class="form-control" id="email" aria-describedby="emailHelp" placeholder="Your Email">
+                  </div>
+                  <button (click)="registerParticipant(participantName.value, participantEmail.value)" class="btn btn-primary btn-block">Submit</button>
+                </form>
+          </div>
+          <div *ngIf="submitted">
+            <p class="card-text">Thank you for registering!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

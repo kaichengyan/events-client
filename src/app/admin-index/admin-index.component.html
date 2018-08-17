@@ -1,0 +1,25 @@
+<h2>
+  <a routerLink="/workshops"><fa name="home mr-3"></fa></a>
+  Manage Events
+  <a routerLink="/admin/workshop/new" class="btn btn-primary ml-3">
+    <fa name="plus"></fa> New Event
+  </a>
+  <button class="btn btn-danger ml-2" (click)="logout()">
+    <fa name="sign-out"></fa> Log out
+  </button>
+</h2>
+<div class="row mt-4">
+  <div class="col-md-6 mt-2" *ngFor="let workshop of workshops">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">{{workshop.title}}</h4>
+        <p class="card-text text-muted">
+          <fa name="map-marker"></fa> {{workshop.location}}
+          <fa name="clock-o ml-3"></fa> {{workshop.date_time}}
+        </p>
+        <a routerLink="/admin/workshop/{{workshop.id}}" class="btn btn-primary"><fa name="gear" class="mr-2"></fa>Manage</a>
+        <button (click)="deleteWorkshop(workshop)" class="btn btn-danger ml-2"><fa name="trash" class="mr-2"></fa>Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

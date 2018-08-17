@@ -1,0 +1,30 @@
+<div *ngIf="workshop">
+  <h2><a routerLink="/admin"><fa name="chevron-left" class="mr-3"></fa></a>{{ workshop.title }}</h2>
+  <div class="row mt-4">
+    <div class="col-sm">
+      <div class="card mb-3 px-3 py-1">
+        <div class="card-body">
+          <h3 class="card-title">View Workshop Detail<a routerLink="/admin/workshop/{{workshop.id}}/edit"><fa name="pencil"
+                class="ml-3"></fa></a></h3>
+          <p class="card-text text-muted">
+            <fa name="map-marker"></fa> {{ workshop.location }}
+            <fa name="clock-o" class="ml-3"></fa> {{ workshop.date_time }}
+          </p>
+          <p class="card-text markdown-description" [innerHTML]="workshop.description | markdown">
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-header">
+          Participants
+        </div>
+        <ul class="list-group list-group-flush" *ngIf="participants">
+          <li class="list-group-item" *ngIf="participants.length == 0">No participants.</li>
+          <li class="list-group-item" *ngFor="let p of participants">{{p.name}} ({{p.email}})</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
