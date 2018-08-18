@@ -29,12 +29,14 @@ export class AdminIndexComponent implements OnInit {
   }
 
   deleteWorkshop(workshop: Workshop): void {
-    this.workshops = this.workshops.filter(w => w !== workshop);
-    this.workshopService.deleteWorkshop(workshop).subscribe();
+    if (confirm("Are you sure?")) {
+      this.workshops = this.workshops.filter(w => w !== workshop);
+      this.workshopService.deleteWorkshop(workshop).subscribe();
+    }
   }
 
   logout() {
     this.authService.logout();
-    this.router.navigate(['/']);
+    this.router.navigate(["/"]);
   }
 }
