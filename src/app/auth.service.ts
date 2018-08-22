@@ -12,7 +12,7 @@ const httpOptions = {
   providedIn: "root"
 })
 export class AuthService {
-  tokenUrl: string = "http://127.0.0.1:8080/api/token";
+  tokenUrl: string = "http://event.micetek.com/api/token";
 
   constructor(
     private http: HttpClient,

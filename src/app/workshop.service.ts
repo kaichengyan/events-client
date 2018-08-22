@@ -10,7 +10,7 @@ import { AuthService } from "./auth.service";
   providedIn: "root"
 })
 export class WorkshopService {
-  private workshopsUrl = "http://127.0.0.1:8080/api";
+  private workshopsUrl = "http://event.micetek.com/api";
 
   private httpOptions = {
     headers: new HttpHeaders({

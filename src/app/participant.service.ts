@@ -13,7 +13,7 @@ import { MessageService } from "./message.service";
   providedIn: "root"
 })
 export class ParticipantService {
-  private apiUrl = "http://127.0.0.1:8080/api";
+  private apiUrl = "http://event.micetek.com/api";
 
   private httpOptions = {
     headers: new HttpHeaders({

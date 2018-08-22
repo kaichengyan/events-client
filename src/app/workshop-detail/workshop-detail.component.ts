@@ -20,6 +20,7 @@ export class WorkshopDetailComponent implements OnInit {
   modalRef: BsModalRef;
 
   submitted: boolean = false;
+  registeredMessage: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -44,7 +45,14 @@ export class WorkshopDetailComponent implements OnInit {
     participant.name = name;
     participant.email = email;
     participant.event_id = this.workshop.id;
-    this.participantService.registerParticipant(participant).subscribe();
+    this.participantService.registerParticipant(participant).subscribe(
+      data => {
+        this.registeredMessage = 'Thank you for registering!'
+      },
+      error => {
+        this.registeredMessage = 'Oops, something has gone wrong on our end. Please try again later.'
+      }
+    );
     // this.openSuccessModal();
     this.submitted = true;
   }
