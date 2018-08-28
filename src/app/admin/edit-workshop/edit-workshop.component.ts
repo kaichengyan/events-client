@@ -1,12 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Workshop } from '../../Workshop';
-import { WorkshopService } from '../../workshop.service';
+import { Component, OnInit, Input } from "@angular/core";
+import { Router, ActivatedRoute } from "@angular/router";
+import { Workshop } from "../../Workshop";
+import { WorkshopService } from "../../workshop.service";
 
 @Component({
-  selector: 'app-edit-workshop',
-  templateUrl: './edit-workshop.component.html',
-  styleUrls: ['./edit-workshop.component.scss']
+  selector: "app-edit-workshop",
+  templateUrl: "./edit-workshop.component.html",
+  styleUrls: ["./edit-workshop.component.scss"]
 })
 export class EditWorkshopComponent implements OnInit {
   @Input()
@@ -34,5 +34,4 @@ export class EditWorkshopComponent implements OnInit {
       this.router.navigate([`/admin/workshop/${this.model.id}`]);
     });
   }
-
 }

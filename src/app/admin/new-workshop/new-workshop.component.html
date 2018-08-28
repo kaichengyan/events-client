@@ -2,15 +2,18 @@
 <form (ngSubmit)="onSubmit()" #workshopForm="ngForm" class="form mt-4" method="post" action="#">
   <div class="form-group">
     <label for="title">Title</label>
-    <input [(ngModel)]="model.title" #workshopTitle name="title" class="form-control" id="title" aria-describedby="titleHelp" placeholder="Event title">
+    <input [(ngModel)]="model.title" #workshopTitle name="title" class="form-control" id="title" aria-describedby="titleHelp"
+      placeholder="Event title">
   </div>
   <div class="form-group">
     <label for="location">Location</label>
-    <input [(ngModel)]="model.location" #workshopLocation name="location" class="form-control" id="location" aria-describedby="locationHelp" placeholder="Event location">
+    <input [(ngModel)]="model.location" #workshopLocation name="location" class="form-control" id="location" aria-describedby="locationHelp"
+      placeholder="Event location">
   </div>
   <div class="form-group">
     <label for="dateTime">Date and Time</label>
-    <input [(ngModel)]="model.date_time" #workshopDateTime name="dateTime" class="form-control" id="dateTime" aria-describedby="dateTimeHelp" placeholder="YYYY-MM-DD HH:mm:ss">
+    <input [(ngModel)]="model.date_time" #workshopDateTime name="dateTime" class="form-control" id="dateTime" aria-describedby="dateTimeHelp"
+      placeholder="YYYY-MM-DD HH:mm:ss">
   </div>
   <!-- <div class="form-group">
     <label for="date_time">Date</label>
@@ -22,7 +25,8 @@
   </div> -->
   <div class="form-group">
     <label for="description">Description</label>
-    <textarea [(ngModel)]="model.description" #workshopDescription name="description" class="form-control" id="description" rows="8" aria-describedby="descriptionHelp" placeholder="Event description (Markdown supported)"></textarea>
+    <textarea [(ngModel)]="model.description" #workshopDescription name="description" class="form-control" id="description" rows="8"
+      aria-describedby="descriptionHelp" placeholder="Event description (Markdown supported)"></textarea>
   </div>
   <button type="submit" class="btn btn-primary btn-large btn-block">Save</button>
 </form>

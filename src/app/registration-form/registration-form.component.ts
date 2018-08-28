@@ -14,18 +14,18 @@ export class RegistrationFormComponent implements OnInit {
   @Input()
   workshop: Workshop;
 
-  @ViewChild('captchaElem')
+  @ViewChild("captchaElem")
   captchaElem: ReCaptcha2Component;
 
   submitted: boolean = false;
   registeredMessage: string;
 
   registrationForm = this.fb.group({
-    name: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    phone: ['', [Validators.pattern('[0-9]+'), Validators.minLength(3)]],
-    company: ['', Validators.required],
-    recaptcha: ['', Validators.required]
+    name: ["", Validators.required],
+    email: ["", [Validators.required, Validators.email]],
+    phone: ["", [Validators.pattern("[0-9]+"), Validators.minLength(3)]],
+    company: ["", Validators.required],
+    recaptcha: ["", Validators.required]
   });
 
   constructor(
@@ -44,16 +44,17 @@ export class RegistrationFormComponent implements OnInit {
     var recaptchaResponse = this.captchaElem.getResponse();
     console.log(recaptchaResponse);
     participant.event_id = this.workshop.id;
-    this.participantService.registerParticipant(participant, recaptchaResponse).subscribe(
-      data => {
-        this.registeredMessage = "Thank you for registering!";
-      },
-      error => {
-        this.registeredMessage =
-          "Oops, something has gone wrong on our end. Please try again later.";
-      }
-    );
+    this.participantService
+      .registerParticipant(participant, recaptchaResponse)
+      .subscribe(
+        data => {
+          this.registeredMessage = "Thank you for registering!";
+        },
+        error => {
+          this.registeredMessage =
+            "Oops, something has gone wrong on our end. Please try again later.";
+        }
+      );
     this.submitted = true;
   }
-
 }

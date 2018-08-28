@@ -15,14 +15,11 @@ export class WorkshopService {
   private httpOptions = {
     headers: new HttpHeaders({
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${this.authService.getAccessToken()}`
+      Authorization: `Bearer ${this.authService.getAccessToken()}`
     })
   };
 
-  constructor(
-    private http: HttpClient,
-    private authService: AuthService
-  ) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   public getWorkshops(): Observable<Workshop[]> {
     const url = `${this.apiUrl}/events`;
@@ -45,15 +42,17 @@ export class WorkshopService {
     const url = `${this.apiUrl}/admin/event/${id}`;
     return this.http.delete<Workshop>(url, this.httpOptions).pipe(
       tap(_ => this.log(`deleted workshop id=${id}`)),
-      catchError(this.handleError<Workshop>('deleteWorkshop'))
+      catchError(this.handleError<Workshop>("deleteWorkshop"))
     );
   }
 
   public addWorkshop(workshop: Workshop): Observable<Workshop> {
     const url = `${this.apiUrl}/admin/event/create`;
     return this.http.post<Workshop>(url, workshop, this.httpOptions).pipe(
-      tap((workshop: Workshop) => this.log(`added workshop w/ id=${workshop.id}`)),
-      catchError(this.handleError<Workshop>('addWorkshop'))
+      tap((workshop: Workshop) =>
+        this.log(`added workshop w/ id=${workshop.id}`)
+      ),
+      catchError(this.handleError<Workshop>("addWorkshop"))
     );
   }
 
@@ -61,7 +60,7 @@ export class WorkshopService {
     const url = `${this.apiUrl}/admin/event/${workshop.id}`;
     return this.http.put(url, workshop, this.httpOptions).pipe(
       tap(_ => this.log(`updated workshop id=${workshop.id}`)),
-      catchError(this.handleError<Workshop>('updateWorkshop'))
+      catchError(this.handleError<Workshop>("updateWorkshop"))
     );
   }
 

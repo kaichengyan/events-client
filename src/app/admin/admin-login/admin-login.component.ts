@@ -18,16 +18,17 @@ export class AdminLoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/admin/workshops';
+    this.returnUrl =
+      this.route.snapshot.queryParams["returnUrl"] || "/admin/workshops";
   }
 
   login(username: string, password: string): void {
     this.authService.login(username, password).subscribe(
       response => {
-        this.router.navigate(['/admin/workshops']);
+        this.router.navigate(["/admin/workshops"]);
       },
       error => {
-        this.errorMessage = 'Failed to log in. Check your credentials.'
+        this.errorMessage = "Failed to log in. Check your credentials.";
       }
     );
     this.router.navigateByUrl(this.returnUrl);

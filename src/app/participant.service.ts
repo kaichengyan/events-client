@@ -22,10 +22,7 @@ export class ParticipantService {
     })
   };
 
-  constructor(
-    private http: HttpClient,
-    private authService: AuthService
-  ) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   // public getAll(): Observable<Workshop[]> {
   //   const url = `${this.workshopsUrl}/events`;
@@ -42,10 +39,14 @@ export class ParticipantService {
     recaptchaResponse: string
   ): Observable<Participant> {
     const url = `${this.apiUrl}/event/${participant.event_id}/signup`;
-    return this.http.post<Participant>(url, {
-      participantData: participant,
-      recaptchaResponse: recaptchaResponse
-    }, this.httpOptions);
+    return this.http.post<Participant>(
+      url,
+      {
+        participantData: participant,
+        recaptchaResponse: recaptchaResponse
+      },
+      this.httpOptions
+    );
   }
 
   public deleteParticipant(participant: Participant | number) {

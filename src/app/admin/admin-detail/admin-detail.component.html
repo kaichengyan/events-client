@@ -4,14 +4,17 @@
     <div class="col-sm">
       <div class="card mb-3 px-3 py-1">
         <div class="card-body">
-          <h3 class="card-title">View Workshop Detail<a routerLink="/admin/workshop/{{workshop.id}}/edit"><fa name="pencil"
-                class="ml-3"></fa></a></h3>
+          <h3 class="card-title">
+            View Workshop Detail
+            <a routerLink="/admin/workshop/{{workshop.id}}/edit">
+              <fa name="pencil" class="ml-3"></fa>
+            </a>
+          </h3>
           <p class="card-text text-muted">
             <fa name="map-marker"></fa> {{ workshop.location }}
             <fa name="clock-o" class="ml-3"></fa> {{ workshop.date_time }}
           </p>
-          <p class="card-text markdown-description" [innerHTML]="workshop.description | markdown">
-          </p>
+          <p class="card-text markdown-description" [innerHTML]="workshop.description | markdown"></p>
         </div>
       </div>
     </div>

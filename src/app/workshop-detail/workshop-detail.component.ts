@@ -18,7 +18,7 @@ export class WorkshopDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private workshopService: WorkshopService,
+    private workshopService: WorkshopService
   ) {}
 
   ngOnInit() {
@@ -31,5 +31,4 @@ export class WorkshopDetailComponent implements OnInit {
       .getWorkshop(id)
       .subscribe(workshop => (this.workshop = workshop));
   }
-
 }

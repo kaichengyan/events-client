@@ -14,9 +14,7 @@ const httpOptions = {
 export class AuthService {
   tokenUrl: string = environment.apiBaseUrl + "/token";
 
-  constructor(
-    private http: HttpClient,
-  ) {}
+  constructor(private http: HttpClient) {}
 
   isAuthenticated(): boolean {
     return localStorage.getItem("token") && Date.now() < this.expiresAt();
@@ -34,9 +32,9 @@ export class AuthService {
     var token = this.authenticate(username, password);
     token.subscribe(
       response => {
-        localStorage.setItem('token', response.access_token);
+        localStorage.setItem("token", response.access_token);
         localStorage.setItem(
-          'expiresAt',
+          "expiresAt",
           (response.expires_in * 1000 + Date.now()).toString()
         );
       },

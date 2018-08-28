@@ -1,4 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
@@ -6,14 +7,13 @@ import { MarkdownModule, MarkedOptions } from "ngx-markdown";
 import { AngularFontAwesomeModule } from "angular-font-awesome";
 import { NgHttpLoaderModule } from "ng-http-loader";
 import { ButtonsModule } from "ngx-bootstrap/buttons";
-import { NgxCaptchaModule } from 'ngx-captcha';
+import { NgxCaptchaModule } from "ngx-captcha";
 
 import { AppComponent } from "./app.component";
 import { WorkshopsComponent } from "./workshops/workshops.component";
 import { WorkshopDetailComponent } from "./workshop-detail/workshop-detail.component";
-import { AppRoutingModule } from ".//app-routing.module";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { RegistrationFormComponent } from "./registration-form/registration-form.component";
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { RegistrationFormComponent } from './registration-form/registration-form
     AngularFontAwesomeModule,
     NgHttpLoaderModule,
     NgxCaptchaModule.forRoot({
-      reCaptcha2SiteKey: '6LfYkWwUAAAAAPQNRg4OiaHB6AXUELxXKAlHrwn_',
+      reCaptcha2SiteKey: "6LfYkWwUAAAAAPQNRg4OiaHB6AXUELxXKAlHrwn_"
     }),
     ButtonsModule.forRoot(),
     MarkdownModule.forRoot({
@@ -50,6 +50,6 @@ import { RegistrationFormComponent } from './registration-form/registration-form
     }),
     BrowserAnimationsModule
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,21 +1,26 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { ButtonsModule } from "ngx-bootstrap/buttons";
+import { MarkdownModule, MarkedOptions } from "ngx-markdown";
+import { OAuthModule } from "angular-oauth2-oidc";
+import { AngularFontAwesomeModule } from "angular-font-awesome";
 
-import { AdminRoutingModule } from './admin-routing.module';
-import { AdminDetailComponent } from './admin-detail/admin-detail.component';
-import { AdminIndexComponent } from './admin-index/admin-index.component';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
-import { EditWorkshopComponent } from './edit-workshop/edit-workshop.component';
-import { NewWorkshopComponent } from './new-workshop/new-workshop.component';
-import { ButtonsModule } from 'ngx-bootstrap/buttons';
-import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { OAuthModule } from 'angular-oauth2-oidc';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { AdminRoutingModule } from "./admin-routing.module";
+import { AdminDetailComponent } from "./admin-detail/admin-detail.component";
+import { AdminIndexComponent } from "./admin-index/admin-index.component";
+import { AdminLoginComponent } from "./admin-login/admin-login.component";
+import { EditWorkshopComponent } from "./edit-workshop/edit-workshop.component";
+import { NewWorkshopComponent } from "./new-workshop/new-workshop.component";
+
 
 @NgModule({
   imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
     CommonModule,
     AdminRoutingModule,
     FormsModule,
@@ -47,4 +52,4 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     NewWorkshopComponent
   ]
 })
-export class AdminModule { }
+export class AdminModule {}
