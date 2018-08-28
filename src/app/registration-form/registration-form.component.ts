@@ -23,6 +23,8 @@ export class RegistrationFormComponent implements OnInit {
   registrationForm = this.fb.group({
     name: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
+    phone: ['', [Validators.pattern('[0-9]+'), Validators.minLength(3)]],
+    company: ['', Validators.required],
     recaptcha: ['', Validators.required]
   });
 
@@ -37,6 +39,8 @@ export class RegistrationFormComponent implements OnInit {
     var participant: Participant = new Participant();
     participant.name = this.registrationForm.value.name;
     participant.email = this.registrationForm.value.email;
+    participant.company = this.registrationForm.value.company;
+    participant.phone = this.registrationForm.value.phone;
     var recaptchaResponse = this.captchaElem.getResponse();
     console.log(recaptchaResponse);
     participant.event_id = this.workshop.id;
@@ -50,13 +54,6 @@ export class RegistrationFormComponent implements OnInit {
       }
     );
     this.submitted = true;
-  }
-
-  handleSuccess(captchaResponse: string): void {
-    const currentResponse = this.captchaElem.getCurrentResponse();
-    if (currentResponse) {
-      console.log(currentResponse);
-    }
   }
 
 }
