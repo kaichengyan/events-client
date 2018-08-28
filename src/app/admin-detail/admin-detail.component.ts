@@ -4,7 +4,6 @@ import { ActivatedRoute } from "../../../node_modules/@angular/router";
 import { WorkshopService } from "../workshop.service";
 import { ParticipantService } from "../participant.service";
 import { Participant } from "../Participant";
-import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 
 @Component({
   selector: "app-admin-detail",

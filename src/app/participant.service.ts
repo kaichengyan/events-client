@@ -8,12 +8,13 @@ import { Participant } from "./Participant";
 import { AuthService } from "./auth.service";
 import { tap, catchError } from "rxjs/operators";
 import { MessageService } from "./message.service";
+import { environment } from "../environments/environment";
 
 @Injectable({
   providedIn: "root"
 })
 export class ParticipantService {
-  private apiUrl = "http://event.micetek.com/api";
+  private apiUrl = environment.apiBaseUrl;
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -39,10 +40,14 @@ export class ParticipantService {
   }
 
   public registerParticipant(
-    participant: Participant
+    participant: Participant,
+    recaptchaResponse: string
   ): Observable<Participant> {
     const url = `${this.apiUrl}/event/${participant.event_id}/signup`;
-    return this.http.post<Participant>(url, participant, this.httpOptions);
+    return this.http.post<Participant>(url, {
+      participantData: participant,
+      recaptchaResponse: recaptchaResponse
+    }, this.httpOptions);
   }
 
   public deleteParticipant(participant: Participant | number) {

@@ -1,16 +1,14 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { MarkdownModule, MarkedOptions } from "ngx-markdown";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { AngularFontAwesomeModule } from "angular-font-awesome";
 import { NgHttpLoaderModule } from "ng-http-loader";
-import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
-import { TimepickerModule } from "ngx-bootstrap/timepicker";
-import { ModalModule } from "ngx-bootstrap/modal";
 import { ButtonsModule } from "ngx-bootstrap/buttons";
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 import { AppComponent } from "./app.component";
 import { WorkshopsComponent } from "./workshops/workshops.component";
@@ -22,8 +20,8 @@ import { AdminDetailComponent } from "./admin-detail/admin-detail.component";
 import { NewWorkshopComponent } from "./new-workshop/new-workshop.component";
 import { MessagesComponent } from "./messages/messages.component";
 import { EditWorkshopComponent } from "./edit-workshop/edit-workshop.component";
-import { ModalMessageComponent } from "./modal-message/modal-message.component";
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { RegistrationFormComponent } from './registration-form/registration-form.component';
 
 @NgModule({
   declarations: [
@@ -35,22 +33,22 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     NewWorkshopComponent,
     MessagesComponent,
     EditWorkshopComponent,
-    ModalMessageComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    RegistrationFormComponent
   ],
-  entryComponents: [ModalMessageComponent],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     FlexLayoutModule,
     AngularFontAwesomeModule,
     NgHttpLoaderModule,
     OAuthModule,
-    BsDatepickerModule.forRoot(),
-    TimepickerModule.forRoot(),
-    ModalModule.forRoot(),
+    NgxCaptchaModule.forRoot({
+      reCaptcha2SiteKey: '6LfYkWwUAAAAAPQNRg4OiaHB6AXUELxXKAlHrwn_',
+    }),
     ButtonsModule.forRoot(),
     MarkdownModule.forRoot({
       markedOptions: {
@@ -68,6 +66,6 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
     }),
     BrowserAnimationsModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

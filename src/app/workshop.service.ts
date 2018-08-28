@@ -2,15 +2,16 @@ import { Injectable } from "@angular/core";
 import { Workshop } from "./Workshop";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, of } from "rxjs";
-import { catchError, map, tap } from "rxjs/operators";
+import { catchError, tap } from "rxjs/operators";
 import { MessageService } from "./message.service";
 import { AuthService } from "./auth.service";
+import { environment } from "../environments/environment.prod";
 
 @Injectable({
   providedIn: "root"
 })
 export class WorkshopService {
-  private workshopsUrl = "http://event.micetek.com/api";
+  private apiUrl = environment.apiBaseUrl;
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -26,7 +27,7 @@ export class WorkshopService {
   ) {}
 
   public getWorkshops(): Observable<Workshop[]> {
-    const url = `${this.workshopsUrl}/events`;
+    const url = `${this.apiUrl}/events`;
     return this.http.get<Workshop[]>(url).pipe(
       tap(_ => this.log("fetched workshops")),
       catchError(this.handleError("getWorkshops", []))
@@ -34,7 +35,7 @@ export class WorkshopService {
   }
 
   public getWorkshop(id: number): Observable<Workshop> {
-    const url = `${this.workshopsUrl}/event/${id}`;
+    const url = `${this.apiUrl}/event/${id}`;
     return this.http.get<Workshop>(url).pipe(
       tap(_ => this.log(`fetched workshop id=${id}`)),
       catchError(this.handleError<Workshop>(`getWorkshop id=${id}`))
@@ -43,7 +44,7 @@ export class WorkshopService {
 
   public deleteWorkshop(workshop: Workshop | number): Observable<Workshop> {
     const id = typeof workshop === "number" ? workshop : workshop.id;
-    const url = `${this.workshopsUrl}/admin/event/${id}`;
+    const url = `${this.apiUrl}/admin/event/${id}`;
     return this.http.delete<Workshop>(url, this.httpOptions).pipe(
       tap(_ => this.log(`deleted workshop id=${id}`)),
       catchError(this.handleError<Workshop>('deleteWorkshop'))
@@ -51,7 +52,7 @@ export class WorkshopService {
   }
 
   public addWorkshop(workshop: Workshop): Observable<Workshop> {
-    const url = `${this.workshopsUrl}/admin/event/create`;
+    const url = `${this.apiUrl}/admin/event/create`;
     return this.http.post<Workshop>(url, workshop, this.httpOptions).pipe(
       tap((workshop: Workshop) => this.log(`added workshop w/ id=${workshop.id}`)),
       catchError(this.handleError<Workshop>('addWorkshop'))
@@ -59,7 +60,7 @@ export class WorkshopService {
   }
 
   public updateWorkshop(workshop: Workshop): Observable<any> {
-    const url = `${this.workshopsUrl}/admin/event/${workshop.id}`;
+    const url = `${this.apiUrl}/admin/event/${workshop.id}`;
     return this.http.put(url, workshop, this.httpOptions).pipe(
       tap(_ => this.log(`updated workshop id=${workshop.id}`)),
       catchError(this.handleError<Workshop>('updateWorkshop'))

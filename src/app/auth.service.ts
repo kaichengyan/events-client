@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { MessageService } from "./message.service";
 import { Observable } from "rxjs";
 import { AuthToken } from "./AuthToken";
+import { environment } from "../environments/environment";
 
 const httpOptions = {
   headers: new HttpHeaders({ "Content-Type": "application/json" })
@@ -12,7 +13,7 @@ const httpOptions = {
   providedIn: "root"
 })
 export class AuthService {
-  tokenUrl: string = "http://event.micetek.com/api/token";
+  tokenUrl: string = environment.apiBaseUrl + "/token";
 
   constructor(
     private http: HttpClient,

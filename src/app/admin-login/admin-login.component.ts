@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 export class AdminLoginComponent implements OnInit {
   private returnUrl: string;
-  private errorMessage: string;
+  errorMessage: string;
 
   constructor(
     private route: ActivatedRoute,

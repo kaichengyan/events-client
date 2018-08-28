@@ -8,7 +8,7 @@ import { Workshop } from "../Workshop";
   styleUrls: ["./workshops.component.scss"]
 })
 export class WorkshopsComponent implements OnInit {
-  private workshops: Workshop[];
+  workshops: Workshop[];
 
   constructor(private workshopService: WorkshopService) {}
 

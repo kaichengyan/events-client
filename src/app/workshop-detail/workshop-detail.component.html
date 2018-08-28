@@ -20,22 +20,23 @@
           Sign Up
         </div>
         <div class="card-body">
-          <div *ngIf="!submitted">
+          <app-registration-form [workshop]="workshop"></app-registration-form>
+          <!-- <div *ngIf="!submitted">
               <form method="post" action="#">
-                  <div class="form-group">
-                    <label for="name">Name</label>
-                    <input #participantName class="form-control" id="name" aria-describedby="nameHelp" placeholder="Your Name">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                    <input #participantEmail class="form-control" id="email" aria-describedby="emailHelp" placeholder="Your Email">
-                  </div>
-                  <button (click)="registerParticipant(participantName.value, participantEmail.value)" class="btn btn-primary btn-block">Submit</button>
-                </form>
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input #participantName class="form-control" id="name" aria-describedby="nameHelp" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input #participantEmail class="form-control" id="email" aria-describedby="emailHelp" placeholder="Your Email">
+                </div>
+                <button (click)="registerParticipant(participantName.value, participantEmail.value)" class="btn btn-primary btn-block">Submit</button>
+              </form>
           </div>
           <div *ngIf="submitted">
             <p class="card-text">{{registeredMessage}}</p>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

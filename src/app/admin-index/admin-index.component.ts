@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./admin-index.component.scss"]
 })
 export class AdminIndexComponent implements OnInit {
-  private workshops: Workshop[];
+  workshops: Workshop[];
 
   constructor(
     private workshopService: WorkshopService,
