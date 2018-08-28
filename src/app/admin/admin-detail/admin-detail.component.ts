@@ -1,9 +1,9 @@
-import { Component, OnInit, Input, TemplateRef } from "@angular/core";
-import { Workshop } from "../Workshop";
-import { ActivatedRoute } from "../../../node_modules/@angular/router";
-import { WorkshopService } from "../workshop.service";
-import { ParticipantService } from "../participant.service";
-import { Participant } from "../Participant";
+import { Component, OnInit, Input } from "@angular/core";
+import { Workshop } from "../../Workshop";
+import { Participant } from "../../Participant";
+import { ActivatedRoute } from "../../../../node_modules/@angular/router";
+import { WorkshopService } from "../../workshop.service";
+import { ParticipantService } from "../../participant.service";
 
 @Component({
   selector: "app-admin-detail",

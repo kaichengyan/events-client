@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { WorkshopService } from "../workshop.service";
-import { Workshop } from "../Workshop";
-import { AuthService } from "../auth.service";
+import { WorkshopService } from "../../workshop.service";
+import { Workshop } from "../../Workshop";
+import { AuthService } from "../../auth.service";
 import { Router } from "@angular/router";
 
 @Component({

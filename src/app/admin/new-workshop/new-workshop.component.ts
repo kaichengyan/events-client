@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Location } from "@angular/common";
-import { Workshop } from "../Workshop";
-import { WorkshopService } from "../workshop.service";
 import { Router } from "@angular/router";
+import { Workshop } from "../../Workshop";
+import { WorkshopService } from "../../workshop.service";
 
 @Component({
   selector: "app-new-workshop",

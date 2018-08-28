@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Workshop } from '../Workshop';
-import { WorkshopService } from '../workshop.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Workshop } from '../../Workshop';
+import { WorkshopService } from '../../workshop.service';
 
 @Component({
   selector: 'app-edit-workshop',
