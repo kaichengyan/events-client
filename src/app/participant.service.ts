@@ -7,7 +7,6 @@ import { Observable, of } from "../../node_modules/rxjs";
 import { Participant } from "./Participant";
 import { AuthService } from "./auth.service";
 import { tap, catchError } from "rxjs/operators";
-import { MessageService } from "./message.service";
 import { environment } from "../environments/environment";
 
 @Injectable({
@@ -25,7 +24,6 @@ export class ParticipantService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService,
     private authService: AuthService
   ) {}
 
@@ -78,8 +76,9 @@ export class ParticipantService {
     };
   }
 
-  /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`);
+    if (!environment.production) {
+      console.log(`HeroService: ${message}`);
+    }
   }
 }

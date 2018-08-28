@@ -7,7 +7,6 @@ import { Spinkit } from 'ng-http-loader';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public showMessages: boolean = false;
   public spinkit = Spinkit;
   title = 'Events';
 }

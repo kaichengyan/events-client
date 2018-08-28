@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { MessageService } from "./message.service";
 import { Observable } from "rxjs";
 import { AuthToken } from "./AuthToken";
 import { environment } from "../environments/environment";
@@ -17,7 +16,6 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService
   ) {}
 
   isAuthenticated(): boolean {

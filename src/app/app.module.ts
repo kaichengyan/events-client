@@ -6,7 +6,6 @@ import { MarkdownModule, MarkedOptions } from "ngx-markdown";
 import { AngularFontAwesomeModule } from "angular-font-awesome";
 import { NgHttpLoaderModule } from "ng-http-loader";
 import { ButtonsModule } from "ngx-bootstrap/buttons";
-import { OAuthModule } from 'angular-oauth2-oidc';
 import { NgxCaptchaModule } from 'ngx-captcha';
 
 import { AppComponent } from "./app.component";
@@ -14,7 +13,6 @@ import { WorkshopsComponent } from "./workshops/workshops.component";
 import { WorkshopDetailComponent } from "./workshop-detail/workshop-detail.component";
 import { AppRoutingModule } from ".//app-routing.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MessagesComponent } from "./messages/messages.component";
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 
 @NgModule({
@@ -22,18 +20,16 @@ import { RegistrationFormComponent } from './registration-form/registration-form
     AppComponent,
     WorkshopsComponent,
     WorkshopDetailComponent,
-    MessagesComponent,
     RegistrationFormComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule,
     AngularFontAwesomeModule,
     NgHttpLoaderModule,
-    OAuthModule,
     NgxCaptchaModule.forRoot({
       reCaptcha2SiteKey: '6LfYkWwUAAAAAPQNRg4OiaHB6AXUELxXKAlHrwn_',
     }),

@@ -3,7 +3,6 @@ import { Workshop } from "./Workshop";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, of } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
-import { MessageService } from "./message.service";
 import { AuthService } from "./auth.service";
 import { environment } from "../environments/environment.prod";
 
@@ -22,7 +21,6 @@ export class WorkshopService {
 
   constructor(
     private http: HttpClient,
-    private messageService: MessageService,
     private authService: AuthService
   ) {}
 
@@ -86,8 +84,9 @@ export class WorkshopService {
     };
   }
 
-  /** Log a HeroService message with the MessageService */
   private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`);
+    if (!environment.production) {
+      console.log(`HeroService: ${message}`);
+    }
   }
 }
