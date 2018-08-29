@@ -1,32 +1,35 @@
-<h2><a routerLink="/admin/workshops"><fa name="chevron-left" class="mr-3"></fa></a>Edit Workshop</h2>
-<form *ngIf="model" (ngSubmit)="onSubmit()" #workshopForm="ngForm" class="form mt-4" method="post" action="#">
-  <div class="form-group">
+<h2><a routerLink="/admin/workshops"><fa name="chevron-left" class="mr-3"></fa></a>New Workshop</h2>
+<form (ngSubmit)="onSubmit()" #workshopForm="ngForm" class="form mt-4" method="post" action="#">
+  <div class="form-group" [ngClass]="{ 'was-validated': title.touched }">
     <label for="title">Title</label>
-    <input [(ngModel)]="model.title" #workshopTitle name="title" class="form-control" id="title" aria-describedby="titleHelp"
-      placeholder="Event title">
+    <input [(ngModel)]="model.title" #title="ngModel" name="title" class="form-control" id="title" aria-describedby="titleHelp"
+      placeholder="Event title" required>
+    <div class="invalid-feedback">A title is required.</div>
   </div>
-  <div class="form-group">
+  <div class="form-group" [ngClass]="{ 'was-validated': location.touched }">
     <label for="location">Location</label>
-    <input [(ngModel)]="model.location" #workshopLocation name="location" class="form-control" id="location" aria-describedby="locationHelp"
-      placeholder="Event location">
+    <input [(ngModel)]="model.location" #location="ngModel" name="location" class="form-control" id="location" aria-describedby="locationHelp"
+      placeholder="Event location" required>
+    <div class="invalid-feedback">A location is required.</div>
   </div>
-  <div class="form-group">
+  <div class="form-group" [ngClass]="{ 'was-validated': date_time.touched }">
     <label for="dateTime">Date and Time</label>
-    <input [(ngModel)]="model.date_time" #workshopDateTime name="dateTime" class="form-control" id="dateTime" aria-describedby="dateTimeHelp"
-      placeholder="YYYY-MM-DD HH:mm:ss">
+    <input [(ngModel)]="model.date_time" #date_time="ngModel" name="dateTime" class="form-control" id="dateTime" aria-describedby="dateTimeHelp"
+      placeholder="YYYY-MM-DD HH:mm:ss" required pattern="\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}">
+    <div *ngIf="date_time.invalid && (date_time.dirty || date_time.touched)" class="invalid-feedback">
+      <span *ngIf="date_time.errors.required">
+        Date and time are required.
+      </span>
+      <span *ngIf="date_time.errors.pattern">
+        Date and time should be in YYYY-MM-DD HH:mm:ss format.
+      </span>
+    </div>
   </div>
-  <!-- <div class="form-group">
-    <label for="date_time">Date</label>
-    <input type="text" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" placeholder="Date of workshop" class="form-control" bsDatepicker>
-  </div>
-  <div class="form-group">
-    <label for="date_time">Time</label>
-    <timepicker name="time" [(ngModel)]="mytime"></timepicker>
-  </div> -->
-  <div class="form-group">
+  <div class="form-group" [ngClass]="{ 'was-validated': description.touched }">
     <label for="description">Description</label>
-    <textarea [(ngModel)]="model.description" #workshopDescription name="description" class="form-control" id="description" rows="8"
-      aria-describedby="descriptionHelp" placeholder="Event description (Markdown supported)"></textarea>
-  </div>
-  <button type="submit" class="btn btn-primary btn-large btn-block">Save</button>
+    <textarea [(ngModel)]="model.description" #description="ngModel" name="description" class="form-control" id="description" rows="8"
+      aria-describedby="descriptionHelp" placeholder="Event description (Markdown supported)" required></textarea>
+    <div class="invalid-feedback">A description is required.</div>
+    </div>
+  <button type="submit" [disabled]="!workshopForm.valid" class="btn btn-primary btn-large btn-block">Save</button>
 </form>
