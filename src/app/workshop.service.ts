@@ -85,7 +85,7 @@ export class WorkshopService {
 
   private log(message: string) {
     if (!environment.production) {
-      console.log(`HeroService: ${message}`);
+      console.log(`WorkshopService: ${message}`);
     }
   }
 }
