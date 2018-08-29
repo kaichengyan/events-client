@@ -42,7 +42,6 @@ export class RegistrationFormComponent implements OnInit {
     participant.company = this.registrationForm.value.company;
     participant.phone = this.registrationForm.value.phone;
     var recaptchaResponse = this.captchaElem.getResponse();
-    console.log(recaptchaResponse);
     participant.event_id = this.workshop.id;
     this.participantService
       .registerParticipant(participant, recaptchaResponse)
