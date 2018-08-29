@@ -23,7 +23,7 @@ export class RegistrationFormComponent implements OnInit {
   registrationForm = this.fb.group({
     name: ["", Validators.required],
     email: ["", [Validators.required, Validators.email]],
-    phone: ["", [Validators.pattern("[0-9]+"), Validators.minLength(3)]],
+    phone: ["", [Validators.pattern("(\\+)?[0-9]+"), Validators.minLength(3)]],
     company: ["", Validators.required],
     recaptcha: ["", Validators.required]
   });

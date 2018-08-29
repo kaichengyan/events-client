@@ -1,22 +1,43 @@
 <div *ngIf="!submitted">
   <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{ 'was-validated': registrationForm.controls['name'].touched }">
       <label for="name">Name</label>
       <input formControlName="name" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Your Name" required>
+      <div class="invalid-feedback">Your name is required.</div>
     </div>
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{ 'was-validated': registrationForm.controls['email'].touched }">
       <label for="email">Email</label>
-      <input formControlName="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Your Email" required>
+      <input formControlName="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Your Email"
+        required>
+      <div *ngIf="registrationForm.controls['email'].invalid && (registrationForm.controls['email'].dirty || registrationForm.controls['email'].touched)"
+        class="invalid-feedback">
+        <span *ngIf="registrationForm.controls['email'].errors.required">
+          Your email is required.
+        </span>
+        <span *ngIf="registrationForm.controls['email'].errors.email">
+          Your email is not in the correct format.
+        </span>
+      </div>
     </div>
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{ 'was-validated': registrationForm.controls['company'].touched }">
       <label for="company">Company</label>
       <input formControlName="company" class="form-control" id="company" aria-describedby="companyHelp" placeholder="Your Company"
         required>
+      <div class="invalid-feedback">Your company is required.</div>
     </div>
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{ 'was-validated': registrationForm.controls['phone'].touched }">
       <label for="phone">Phone</label>
       <input formControlName="phone" class="form-control" id="phone" aria-describedby="phoneHelp" placeholder="Your Phone Number (Digits)"
-        required>
+        required pattern="(\+)?[0-9]+">
+      <div *ngIf="registrationForm.controls['phone'].invalid && (registrationForm.controls['phone'].dirty || registrationForm.controls['phone'].touched)"
+        class="invalid-feedback">
+        <span *ngIf="registrationForm.controls['phone'].errors.required">
+          Your phone is required.
+        </span>
+        <span *ngIf="registrationForm.controls['phone'].errors.pattern">
+          Your phone number is not in the correct format. Please omit spaces and hyphens.
+        </span>
+      </div>
     </div>
     <div class="form-group">
       <ngx-recaptcha2 #captchaElem [size]="compact" [hl]="en" [theme]="light" formControlName="recaptcha"></ngx-recaptcha2>
