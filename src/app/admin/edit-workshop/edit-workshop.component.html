@@ -1,5 +1,5 @@
 <h2><a routerLink="/admin/workshops"><fa name="chevron-left" class="mr-3"></fa></a>Edit Workshop</h2>
-<form *ngIf="workshop" (ngSubmit)="onSubmit()" #workshopForm="ngForm" class="form mt-4" method="post" action="#">
+<form *ngIf="model" (ngSubmit)="onSubmit()" #workshopForm="ngForm" class="form mt-4" method="post" action="#">
   <div class="form-group" [ngClass]="{ 'was-validated': title.touched }">
     <label for="title">Title</label>
     <input [(ngModel)]="model.title" #title="ngModel" name="title" class="form-control" id="title" aria-describedby="titleHelp"

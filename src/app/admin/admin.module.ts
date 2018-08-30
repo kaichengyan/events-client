@@ -3,8 +3,7 @@ import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { ButtonsModule } from "ngx-bootstrap/buttons";
-import { MarkdownModule, MarkedOptions } from "ngx-markdown";
-import { OAuthModule } from "angular-oauth2-oidc";
+import { MarkdownModule } from "ngx-markdown";
 import { AngularFontAwesomeModule } from "angular-font-awesome";
 
 import { AdminRoutingModule } from "./admin-routing.module";
@@ -23,21 +22,20 @@ import { NewWorkshopComponent } from "./new-workshop/new-workshop.component";
     ReactiveFormsModule,
     HttpClientModule,
     AngularFontAwesomeModule,
-    OAuthModule,
     ButtonsModule.forRoot(),
     MarkdownModule.forRoot({
-      markedOptions: {
-        provide: MarkedOptions,
-        useValue: {
-          gfm: false,
-          tables: true,
-          breaks: true,
-          pedantic: true,
-          sanitize: false,
-          smartLists: true,
-          smartypants: false
-        }
-      }
+      // markedOptions: {
+      //   provide: MarkedOptions,
+      //   useValue: {
+      //     gfm: false,
+      //     tables: true,
+      //     breaks: true,
+      //     pedantic: true,
+      //     sanitize: false,
+      //     smartLists: true,
+      //     smartypants: false
+      //   }
+      // }
     })
   ],
   declarations: [

@@ -24,8 +24,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/font-awesome/css/font-awesome.css",
-              "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css"
+              "node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": [
               "node_modules/marked/lib/marked.js"

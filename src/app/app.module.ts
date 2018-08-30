@@ -35,18 +35,18 @@ import { RegistrationFormComponent } from "./registration-form/registration-form
     }),
     ButtonsModule.forRoot(),
     MarkdownModule.forRoot({
-      markedOptions: {
-        provide: MarkedOptions,
-        useValue: {
-          gfm: false,
-          tables: true,
-          breaks: true,
-          pedantic: true,
-          sanitize: false,
-          smartLists: true,
-          smartypants: false
-        }
-      }
+      // markedOptions: {
+      //   provide: MarkedOptions,
+      //   useValue: {
+      //     gfm: false,
+      //     tables: true,
+      //     breaks: true,
+      //     pedantic: false,
+      //     sanitize: true,
+      //     smartLists: true,
+      //     smartypants: false
+      //   }
+      // }
     }),
     BrowserAnimationsModule
   ],
